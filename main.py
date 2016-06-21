@@ -1,6 +1,8 @@
 from tkinter import *
 from time import *
 from random import *
+import os
+import sys
 
 class SnakeGame:
 
@@ -99,7 +101,7 @@ class SnakeGame:
     def __init__(self):
         self.canv = Canvas(root, width=self.WIDTH, height=self.HEIGHT, bg="#003300")
         self.canv.pack()
-        self.im ='/Users/irina_dashevskaya/project_2/background.gif'
+        self.im = os.path.realpath(os.path.dirname(sys.argv[0])) + '/background.gif'
         self.ph_im =PhotoImage(file=self.im)
         self.canv.create_image(1,1,anchor=NW,image=self.ph_im)
         self.snake_head = self.canv.create_oval([240,240],[260,260], fill="white")
